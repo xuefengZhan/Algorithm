@@ -21,73 +21,90 @@ public class _07_Merge {
         if(arr == null || (low == high)) return;
         //2.关系
         int mid = (low+high) >> 1;
-        System.out.println("从"+mid+"分裂");
+//        System.out.println("从"+mid+"分裂");
         mergeSort(arr,low,mid); //让左边有序
-        System.out.println(low+"到"+mid+"有序了");
+//        System.out.println(low+"到"+mid+"有序了");
         mergeSort(arr,mid+1,high);//让右边有序
-        System.out.println(mid+1  + "到"+high+"有序了");
+//        System.out.println(mid+1  + "到"+high+"有序了");
 
 
         merge(arr,low,mid,high); //合并左右
 
     }
 
-    private static void merge(int[] arr,int low,int mid,int high){
+    private static int[] SubList(int[] arr,int low,int high){
         int[] lowhigh = new int[high-low+1];
         int x = 0;
         for(int i = low;i<=high;i++){
             lowhigh[x] = arr[i];
             x++;
         }
-        System.out.print(low+"到"+high+"为：");
-        System.out.println(Arrays.toString(lowhigh));
+        return lowhigh;
+    }
 
-          //todo 备份左边的有序序列
-          int leftLen = mid-low+1;//[low,mid]
-          int rightLen = high-mid;//[mid+1,high]
-          int[] leftArray = new int[leftLen];
-          int[] rightArray = new int[rightLen];
-          int li = 0;
-          for(int i = low;i<=mid;i++){
-              leftArray[li] = arr[i];
-              li++;
-          }
-          int ri=0;
-          for(int i = mid+1;i<=high;i++){
-              rightArray[ri]=arr[i];
-              ri++;
-          }
+//    private static void merge(int[] arr,int low,int mid,int high){
+//
+//        int[] leftArray = SubList(arr, low, mid);
+//        int[] rightArray = SubList(arr, mid + 1, high);
+//
+//
+//
+//        int li=0;
+//        int ri = 0;
+//        int ai = low;
+//        while(ai<=high){
+//          if(ri< rightArray.length && li < leftArray.length){
+//              if(rightArray[ri] <= leftArray[li]){
+//                  arr[ai] = rightArray[ri];
+//                  ai++;
+//                  ri++;
+//              }else {
+//                  arr[ai] = leftArray[li];
+//                  ai++;
+//                  li++;
+//              }
+//          }else if(ri < rightArray.length && li >= leftArray.length){
+//              arr[ai] = rightArray[ri];
+//              ai++;
+//              ri++;
+//          }else if(ri >= rightArray.length && li < leftArray.length){
+//              arr[ai] = leftArray[li];
+//              ai++;
+//              li++;
+//          }else{
+//              break;
+//          }
+//       }
 
-        System.out.print(low+"到"+mid+"的有序序列为：");
-        System.out.println(Arrays.toString(leftArray));
-        System.out.print(mid+"到"+high+"的有序序列为：");
-        System.out.println(Arrays.toString(rightArray));
+    private static void merge(int[] arr,int low,int mid,int high){
 
-          li=0;
-          ri = 0;
-          int ai = low;
-          while(ai<high){
-              if(leftArray[li]>=rightArray[ri]){
-                  arr[ai] = rightArray[ri];
-                  ai++;
-                  ri++;
-              }else{
-                  arr[ai] = leftArray[li];
-                  ai++;
-                  li++;
-              }
-          }
+        int[] leftArray = SubList(arr, low, mid);
 
-        System.out.print(low+"到"+high+"的有序序列为：");
-
-
-        System.out.println(Arrays.toString(lowhigh));
+        int li=0;
+        int ri = mid+1;
+        int ai = low;
+        while(ai<=high){
+            if(li<leftArray.length && (ri > high || leftArray[li] <= arr[ri])){
+                arr[ai] = leftArray[li];
+                ai++;
+                li++;
+            }else{
+                arr[ai] = arr[ri];
+                ai++;
+                ri++;
+            }
+        }
     }
 
 
     public static void main(String[] args) {
-        int[] arr = {26,15,23,48,654,2,35,489,320,546,21,32,48,65};
-        //int[] arr = {26,15};
+        int[] arr = {26,15,23,48,54,2,35,9,20,36,71,32,37,65};
+//        int mid = (arr.length -1)>>1;
+//        int[] left = SubList(arr, 0, mid);
+//        int[] right = SubList(arr, mid + 1, arr.length - 1);
+//
+//        System.out.println(Arrays.toString(left));
+//        System.out.println(Arrays.toString(right));
          mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }

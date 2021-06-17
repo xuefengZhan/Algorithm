@@ -13,7 +13,7 @@ public class _07_Merge {
       public static void mergeSort(int[] arr){
           mergeSort(arr,0,arr.length-1);
       }
-    //功能：让数组arr在[low,high]范围内有序  并返回
+    //功能：让数组arr在[low,high]范围内有序
     //关系：[low,high] 分裂为：[low,mid] [mid+1,high] 两个子序列  所以  mergeSort([low,high]) = 合并两个有序序列： mergeSort(low,mid) +  mergeSort([mid+1,high])
     //边界：high = low 只有一个元素的时候直接返回，因为已经有序了
     public static void mergeSort(int[] arr,int low,int high){

@@ -1,4 +1,4 @@
-package _01_sort;
+package _01_sort.cmp;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ public class _06_插入排序二分搜索优化 {
     /*
         此方法用于返回v在array的位置
      */
-    private static int searchIndex(int[] array,int v){
+    public static int searchIndex(int[] array,int v){
         return searchIndex(array,v,0,array.length-1);
     }
 
@@ -42,14 +42,16 @@ public class _06_插入排序二分搜索优化 {
         for (int i = 1; i < arr.length; i++) {
             //[0,i)是有序区域    arr[i] 是待插元素
             int tmp = arr[i];
-            int insertIndex = searchIndex(arr, tmp,0,i-1);
+            int insertIndex = searchIndex(arr, tmp,0,i-1);  //logN
             //将[insertIndex,i-1]范围内的有序元素 往后移动1位
             for(int j = i;j>insertIndex;j--){
                 arr[j] = arr[j-1];
-            }
+            }//n
             //将元素插进去
             arr[insertIndex] = tmp;
         }
+
+        //搜索 logN+N
     }
 
 

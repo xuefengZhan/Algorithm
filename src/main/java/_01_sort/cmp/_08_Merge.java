@@ -1,4 +1,4 @@
-package _01_sort;
+package _01_sort.cmp;
 
 import java.util.Arrays;
 
@@ -8,9 +8,9 @@ import java.util.Arrays;
 //直到不能再分割（序列中只剩 1 个元素）
 //② 不断地将 2 个子序列合并成一个有序序列
 //直到最终只剩下 1 个有序序列
-public class _07_Merge {
+public class _08_Merge {
 
-      public static void mergeSort(int[] arr){
+   public static void mergeSort(int[] arr){
           mergeSort(arr,0,arr.length-1);
       }
     //功能：让数组arr在[low,high]范围内有序
@@ -26,7 +26,6 @@ public class _07_Merge {
 //        System.out.println(low+"到"+mid+"有序了");
         mergeSort(arr,mid+1,high);//让右边有序
 //        System.out.println(mid+1  + "到"+high+"有序了");
-
 
         merge(arr,low,mid,high); //合并左右
 
@@ -76,6 +75,7 @@ public class _07_Merge {
 //          }
 //       }
 
+    //merge的两个序列是存在于数组的左右两边
     private static void merge(int[] arr,int low,int mid,int high){
 
         int[] leftArray = SubList(arr, low, mid);

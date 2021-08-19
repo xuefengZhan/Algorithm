@@ -17,15 +17,28 @@ import java.util.Arrays;
 
 public class _01_Bubble <T extends Comparable<T>> extends Sort<T> {
 
+//    @Override
+//    protected void sort() {
+//        for (int i = array.length - 1; i > 0; i--) {
+//            for (int j = 0; j < i; j++) {
+//                if (cmp(array[j], array[j + 1]) > 0) {
+//                    swap(j, j + 1);
+//                }
+//            }
+//        }
+//
+//    }
+
     @Override
-    protected void sort() {
-        for (int i = array.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (cmp(array[j], array[j + 1]) > 0) {
-                    swap(j, j + 1);
+    public void sort() {
+        for(int end = array.length -1; end> 0;end--){
+            for(int cur = 0;cur < end;cur++){
+                if(cmp(array[cur] , array[cur+1]) > 0){
+                    swap(cur,cur+1);
                 }
             }
         }
-
     }
+
+
 }

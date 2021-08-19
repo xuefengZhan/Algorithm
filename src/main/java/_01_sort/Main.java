@@ -10,8 +10,12 @@ import java.util.Arrays;
 public class Main {
     // 在 main 函数里写测试代码
     public static void main(String[] args) {
-        // 产生 20000 个数据,每个数据的范围是 1~10000
-        Integer[] array = Integers.random(10000, 1, 20000);
+        /*
+            count:测试的数据量
+            min:最小值
+            max:最大值
+         */
+        Integer[] array = Integers.random(20000, 1, 10000);
 //        Integer[] array = Integers.random(10, 1, 100);
 //
 //        new _03_HeapSort().sort(array);
@@ -22,12 +26,12 @@ public class Main {
                 new _01_Bubble(),
                 new _01_Bubble_2(),
                 new _01_Bubble_3(),
-                new _02_Select(),
-                new _03_HeapSort(),
-                new _04_Insert(),
-                new _04_Insert2(),
-                new _07_Insert_BinarySearch(),
-                new _08_MergeSort()
+                new _02_Select()
+//                new _03_HeapSort(),
+//                new _04_Insert(),
+//                new _04_Insert2(),
+//                new _07_Insert_BinarySearch(),
+//                new _08_MergeSort()
         );
     }
 

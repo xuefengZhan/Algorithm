@@ -75,7 +75,7 @@ public class _09_Quick {
         if(low >= high) return;
 
         //3.关系
-        int partition = partition2(arr, low, high);
+        int partition = partition(arr, low, high);
         sort(arr,low,partition-1);
         sort(arr,partition+1,high);
     }
@@ -83,9 +83,7 @@ public class _09_Quick {
     public void sort(int[] arr){
         sort(arr,0,arr.length-1);
     }
-}
 
-class test{
     public static void main(String[] args) {
         int[] arr = {26,15,23,48,54,2,35,9,20,36,71,32,37,65};
 
@@ -95,3 +93,4 @@ class test{
         System.out.println(Arrays.toString(arr));
     }
 }
+

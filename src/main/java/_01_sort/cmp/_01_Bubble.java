@@ -7,28 +7,14 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-//最坏、平均时间复杂度： n平方
-//最好时间复杂度： o(n)
-//空间复杂度： O(1)
-//冒泡排序属于 In-place
-//冒泡排序属于稳定的排序算法
-// 不稳定的写法：
-//  arr[j]>=arr[j+1]
 
 public class _01_Bubble <T extends Comparable<T>> extends Sort<T> {
-
-//    @Override
-//    protected void sort() {
-//        for (int i = array.length - 1; i > 0; i--) {
-//            for (int j = 0; j < i; j++) {
-//                if (cmp(array[j], array[j + 1]) > 0) {
-//                    swap(j, j + 1);
-//                }
-//            }
-//        }
-//
-//    }
-
+    /**
+     * end的定义为：[0,end]范围内 最大元素 待放置位置；一轮循环下来后，[0,end]的最大元素就放在end位置了；
+     * 如此在完成当前轮排序前：[0,end]是无序的， (end,length-1]是有序的
+     * 完成当前轮排序后：[0,end）是无序的， [end,length-1]是有序的
+     *
+     */
     @Override
     public void sort() {
         for(int end = array.length -1; end> 0;end--){
@@ -39,6 +25,4 @@ public class _01_Bubble <T extends Comparable<T>> extends Sort<T> {
             }
         }
     }
-
-
 }

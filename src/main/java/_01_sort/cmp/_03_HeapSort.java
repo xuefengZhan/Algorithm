@@ -3,17 +3,15 @@ package _01_sort.cmp;
 import _01_sort.Sort;
 
 public class _03_HeapSort<T extends Comparable<T>> extends Sort<T> {
+
     private int heapSize; // 堆大小
 
-    //堆排序是对选择排序的一个优化
     @Override
     protected void sort() {
-        // 原地建堆（自下而上的下滤）
         heapSize = array.length;
-        for (int i = (heapSize >> 1) - 1; i >= 0; i--) {
+        for (int i = (heapSize - 2) >> 1; i >= 0; i--) {
             siftDown(i);
         }
-
         while (heapSize > 1) {
             // 交换堆顶元素和尾部元素
             swap(0, --heapSize);
@@ -21,31 +19,28 @@ public class _03_HeapSort<T extends Comparable<T>> extends Sort<T> {
             // 对0位置进行siftDown（恢复堆的性质）
             siftDown(0);
         }
+
     }
 
-    private void siftDown(int index) {
-        T element = array[index];
 
-        int half = heapSize >> 1;
-        while (index < half) { // index必须是非叶子节点
-            // 默认是左边跟父节点比
-            int childIndex = (index << 1) + 1;
-            T child = array[childIndex];
+    public void siftDown(int index) {
+        T old = array[index];
+        while (index <= (heapSize - 2) >> 1) {
+            int leftIndex = (index << 1) + 1;
+            int rightIndex = leftIndex + 1;
+            int maxIndex = leftIndex;
 
-            int rightIndex = childIndex + 1;
-            // 右子节点要存在, 并且比左子节点大
-            if (rightIndex < heapSize &&
-                    cmp(array[rightIndex], child) > 0) {
-                child = array[childIndex = rightIndex];
+            if (index <= (heapSize - 3) >> 1) {//左右都有
+                maxIndex = cmp(array[leftIndex], array[rightIndex]) > 0 ? leftIndex : rightIndex;
             }
-
-            // 大于等于子节点
-            if (cmp(element, child) >= 0) break;
-
-            array[index] = child;
-            index = childIndex;
+            if (cmp(array[maxIndex], old) > 0) {
+                array[index] = array[maxIndex];
+                index = maxIndex;
+            } else {
+                break;
+            }
         }
-        array[index] = element;
+        array[index] = old;
     }
-
 }
+

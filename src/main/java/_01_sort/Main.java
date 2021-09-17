@@ -17,25 +17,33 @@ public class Main {
          */
         Integer[] array = Integers.random(20000, 1, 10000);
 //        Integer[] array = Integers.random(10, 1, 100);
-//
+
+
+        //todo 1.测试是否正确排序
+//        new _01_Bubble<Integer>().sort(array);
+//        new _01_Bubble_2<Integer>().sort(array);
+//        new _01_Bubble_3<Integer>().sort(array);
+//        new _02_Select<Integer>().sort(array);
 //        new _03_HeapSort().sort(array);
+//        new _04_Insert<Integer>().sort(array);
+//        new _04_Insert2<Integer>().sort(array);
 //        Integers.println(array);
 
-        // 在这里面写要测试的代码
+        //todo 2.测试各种排序算法效率
         testSorts(array,
                 new _01_Bubble(),
                 new _01_Bubble_2(),
                 new _01_Bubble_3(),
-                new _02_Select()
-//                new _03_HeapSort(),
-//                new _04_Insert(),
-//                new _04_Insert2(),
+                new _02_Select(),
+                new _03_HeapSort(),
+                new _04_Insert(),
+                new _04_Insert2()
 //                new _07_Insert_BinarySearch(),
 //                new _08_MergeSort()
         );
     }
 
-    // 下面这个复制就可以
+
     static void testSorts(Integer[] array, Sort... sorts) {
         for (Sort sort : sorts) {
             Integer[] newArray = Integers.copy(array);

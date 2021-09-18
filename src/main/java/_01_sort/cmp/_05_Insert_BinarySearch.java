@@ -2,7 +2,7 @@ package _01_sort.cmp;
 
 import _01_sort.Sort;
 
-public class _07_Insert_BinarySearch<T extends Comparable<T>> extends Sort<T> {
+public class _05_Insert_BinarySearch<T extends Comparable<T>> extends Sort<T> {
 
     private int searchIndex(T[]array,T v){
         return searchIndex(array,v,0,array.length-1);

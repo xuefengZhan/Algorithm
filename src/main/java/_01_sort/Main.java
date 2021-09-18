@@ -37,9 +37,9 @@ public class Main {
                 new _02_Select(),
                 new _03_HeapSort(),
                 new _04_Insert(),
-                new _04_Insert2()
-//                new _07_Insert_BinarySearch(),
-//                new _08_MergeSort()
+                new _04_Insert2(),
+                new _05_Insert_BinarySearch(),
+                new _08_MergeSort()
         );
     }
 

@@ -2,14 +2,8 @@ package _01_sort.cmp;
 
 import java.util.Arrays;
 
-public class _06_插入排序二分搜索优化 {
-    // todo
-    // 由于插入排序是分为有序区 和 无序区域
-    // 因此在插入元素的时候，可以先用二分搜索 找到 应该插入的有序区中的位置
+public class _05_InsertBinarySearch {
 
-    /*
-        此方法用于返回v在array的位置
-     */
     public static int searchIndex(int[] array,int v){
         return searchIndex(array,v,0,array.length-1);
     }
@@ -17,8 +11,6 @@ public class _06_插入排序二分搜索优化 {
     //有序范围[low,high]
     private static int searchIndex(int[] array,int v,int low,int high){
         if(array == null || array.length == 0) return -1;
-//        high = array.length-1;
-//        low = 0;
         int mid;
         while(high > low){
             mid  = (high + low )>>1;

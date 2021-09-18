@@ -41,40 +41,6 @@ public class _08_Merge {
         return lowhigh;
     }
 
-//    private static void merge(int[] arr,int low,int mid,int high){
-//
-//        int[] leftArray = SubList(arr, low, mid);
-//        int[] rightArray = SubList(arr, mid + 1, high);
-//
-//
-//
-//        int li=0;
-//        int ri = 0;
-//        int ai = low;
-//        while(ai<=high){
-//          if(ri< rightArray.length && li < leftArray.length){
-//              if(rightArray[ri] <= leftArray[li]){
-//                  arr[ai] = rightArray[ri];
-//                  ai++;
-//                  ri++;
-//              }else {
-//                  arr[ai] = leftArray[li];
-//                  ai++;
-//                  li++;
-//              }
-//          }else if(ri < rightArray.length && li >= leftArray.length){
-//              arr[ai] = rightArray[ri];
-//              ai++;
-//              ri++;
-//          }else if(ri >= rightArray.length && li < leftArray.length){
-//              arr[ai] = leftArray[li];
-//              ai++;
-//              li++;
-//          }else{
-//              break;
-//          }
-//       }
-
     //merge的两个序列是存在于数组的左右两边
     private static void merge(int[] arr,int low,int mid,int high){
 
@@ -99,12 +65,7 @@ public class _08_Merge {
 
     public static void main(String[] args) {
         int[] arr = {26,15,23,48,54,2,35,9,20,36,71,32,37,65};
-//        int mid = (arr.length -1)>>1;
-//        int[] left = SubList(arr, 0, mid);
-//        int[] right = SubList(arr, mid + 1, arr.length - 1);
-//
-//        System.out.println(Arrays.toString(left));
-//        System.out.println(Arrays.toString(right));
+
          mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }

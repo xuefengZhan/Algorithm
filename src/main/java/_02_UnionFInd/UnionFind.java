@@ -3,6 +3,9 @@ package _02_UnionFInd;
 public abstract class UnionFind {
     protected int[] parents;
 
+
+
+    //todo 初始化数组
     public UnionFind(int capacity) {
         if(capacity < 0){
             throw new IllegalArgumentException("capacity must be >= 1");

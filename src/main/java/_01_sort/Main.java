@@ -27,7 +27,8 @@ public class Main {
 //        new _03_HeapSort().sort(array);
 //        new _04_Insert<Integer>().sort(array);
 //        new _04_Insert2<Integer>().sort(array);
-//        Integers.println(array);
+//         new _09_QuickSort<Integer>().sort(array);
+//         Integers.println(array);
 
         //todo 2.测试各种排序算法效率
         testSorts(array,
@@ -39,7 +40,9 @@ public class Main {
                 new _04_Insert(),
                 new _04_Insert2(),
                 new _05_Insert_BinarySearch(),
-                new _08_MergeSort()
+                new _08_MergeSort(),
+                new _09_QuickSort(),
+                new _09_QuickSortMj()
         );
     }
 

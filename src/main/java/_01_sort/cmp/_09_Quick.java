@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class _09_Quick {
 
 
+    //找一个轴点元素，比此元素小的都放在左边，大于等于的放在右边  返回轴点元素应该在的位置
     public int partition(int[] arr,int low,int high){
         int pivot = arr[low];
 
